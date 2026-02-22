@@ -1,0 +1,1 @@
+﻿Console.WriteLine("Prioridad médica de un paciente: ");
