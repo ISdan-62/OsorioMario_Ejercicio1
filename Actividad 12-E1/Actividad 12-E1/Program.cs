@@ -3,7 +3,7 @@ Console.WriteLine("1. Emergencia");
 Console.WriteLine("2. Consulta");
 Console.WriteLine("3. Pediatría");
 Console.WriteLine("4. Traumatología");
-Console.Write("Seleccionar una opción: ");
+Console.WriteLine("Seleccionar una opción: ");
 int opcion = int.Parse(Console.ReadLine());
 switch (opcion)
 {
@@ -25,7 +25,26 @@ switch (opcion)
                         int niveldolor =int.Parse(Console.ReadLine());
                         if (niveldolor>=0 && niveldolor<=10)
                         {
-                            Console.WriteLine();
+                            int prioridad;
+                            string accion;
+                            if (oxigeno < 90)
+                            {
+                                prioridad = 1;
+                                accion= "Reanimación";
+                            }
+                            else if (temperatura >= 39 && niveldolor >= 8)
+                            {
+                                prioridad = 2;
+                                   accion= "Atención urgente";
+                            }
+                            else
+                            {
+                                prioridad = 3;
+                                accion= "Observacion";
+                            }
+                            Console.WriteLine("RESULTADO DEL TRIAJE");
+                            Console.WriteLine($"Prioridad final:  {prioridad}");
+                            Console.WriteLine($"Acción sugerida:   { accion}");
                         }
                         else
                         {
@@ -66,7 +85,21 @@ switch (opcion)
                         int niveldolor = int.Parse(Console.ReadLine());
                         if (niveldolor >= 0 && niveldolor <= 10)
                         {
-                            Console.WriteLine();
+                            int prioridad;
+                            string accion;
+                            if (niveldolor >= 7 && temperatura >= 39)
+                            {
+                                prioridad = 1;
+                                accion = "Consulta prioritaria";
+                            }
+                            else
+                            {
+                                prioridad = 2;
+                                accion = "Consulta normal";
+                            }
+                            Console.WriteLine("RESULTADO DEL TRIAJE");
+                            Console.WriteLine($"Prioridad final:  {prioridad}");
+                            Console.WriteLine($"Acción sugerida:   {accion}");
                         }
                         else
                         {
@@ -78,14 +111,10 @@ switch (opcion)
                         Console.WriteLine("Oxigeno invalido");
                     }
                 }
-                else
-                {
-                    Console.WriteLine("temperatura invalida");
-                }
-            }
             else
-            {
-                Console.WriteLine("Edad invalida");
+                {
+                    Console.WriteLine("Edad invalida");
+                }
             }
             break;
         }
@@ -93,7 +122,7 @@ switch (opcion)
         {
             Console.WriteLine("Ingresar edad: ");
             int edad = int.Parse(Console.ReadLine());
-            if (edad > 0)
+            if (edad > 0 && edad <= 12)
             {
                 Console.WriteLine("Ingresar temperatura: ");
                 int temperatura = int.Parse(Console.ReadLine());
@@ -107,7 +136,21 @@ switch (opcion)
                         int niveldolor = int.Parse(Console.ReadLine());
                         if (niveldolor >= 0 && niveldolor <= 10)
                         {
-                            Console.WriteLine();
+                            int prioridad;
+                            string accion;
+                            if (temperatura >= 39 && niveldolor > 5)
+                            {
+                                prioridad = 1;
+                                accion = "Atención pediátrica urgente";
+                            }
+                            else
+                            {
+                                prioridad = 2;
+                                accion = "Observación pediátrica";
+                            }
+                            Console.WriteLine("RESULTADO DEL TRIAJE");
+                            Console.WriteLine($"Prioridad final:  {prioridad}");
+                            Console.WriteLine($"Acción sugerida:   {accion}");
                         }
                         else
                         {
@@ -148,7 +191,21 @@ switch (opcion)
                         int niveldolor = int.Parse(Console.ReadLine());
                         if (niveldolor >= 0 && niveldolor <= 10)
                         {
-                            Console.WriteLine();
+                            int prioridad;
+                            string accion;
+                            if (niveldolor >8)
+                            {
+                                prioridad = 1;
+                                accion = "Evaluación traumatológica urgente";
+                            }
+                            else
+                            {
+                                prioridad = 2;
+                                accion = "Evaluación programada";
+                            }
+                            Console.WriteLine("RESULTADO DEL TRIAJE");
+                            Console.WriteLine($"Prioridad final:  {prioridad}");
+                            Console.WriteLine($"Acción sugerida:   {accion}");
                         }
                         else
                         {
@@ -174,6 +231,6 @@ switch (opcion)
     default:
         {
             Console.WriteLine("Opción no válida");
-            break;
         }
+        break;
 }
